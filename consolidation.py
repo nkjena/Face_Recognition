@@ -28,7 +28,7 @@ for i in os.listdir(img_dir):
      image = cv2.imread(os.path.join(img_dir,i))
      image = preprocessing(image)
      images.append(image)
-     labels.append(i.split("-")[0])
+     labels.append(i.split("_")[0])
         
  
    # converted into array 
@@ -36,10 +36,10 @@ images = np.array(images)
 labels = np.array(labels)
  
  #convert pickle
- 
+
 with open(os.path.join(data_dir,"images.p"),"wb") as f:
     pickle.dump(images,f)
      
 with open(os.path.join(data_dir,"labels.p"),"wb") as f:
-    pickle.dump(images,f)
+    pickle.dump(labels,f)
  
